@@ -1,21 +1,21 @@
 // Define os pinos dos motores
-#define LEFT_MOTOR_BACKWARD 10
-#define LEFT_MOTOR_FORWARD 11
-#define RIGHT_MOTOR_BACKWARD 12
-#define RIGHT_MOTOR_FORWARD 13
+#define LEFT_MOTOR_BACKWARD 5
+#define LEFT_MOTOR_FORWARD 6
+#define RIGHT_MOTOR_BACKWARD 7
+#define RIGHT_MOTOR_FORWARD 8
 
 // Define os pinos do sensor ultrassônico
 //O módulo HC-SR04 requer um sinal PWM para disparar o pulso ultrassônico e medir a distância.
-//No Arduino Nano, as portas analógicas que suportam PWM são: A0, A1, A2, A3, A4, A5. Essas portas podem ser utilizadas para controlar o HC-SR04.
-#define TRIGGER_PIN A4
-#define ECHO_PIN A5
+//No Arduino Nano, as portas analógicas podem ser utilizadas para controlar o HC-SR04, desde que corretamente utilizadas
+#define ECHO_PIN A4
+#define TRIGGER_PIN A5
+
 // Define a distância mínima para o robô desviar de obstáculos (em centímetros)
 const int MIN_DISTANCE = 15;
 
 void setup() {
   // Define os pinos como saída
-  pinMode(LEFT_MOTOR_FORWARD, OUTPUT
-  );
+  pinMode(LEFT_MOTOR_FORWARD, OUTPUT);
   pinMode(LEFT_MOTOR_BACKWARD, OUTPUT);
   pinMode(RIGHT_MOTOR_FORWARD, OUTPUT);
   pinMode(RIGHT_MOTOR_BACKWARD, OUTPUT);
@@ -38,7 +38,7 @@ void loop() {
     moveBackward();
     delay(300);
     turnRight();
-    delay(250);
+    delay(450);
 
   } else {
     // Move para frente
@@ -96,6 +96,10 @@ void turnRight() {
 
 
 /*
+
+Este método measureDistance é usado para medir a distância entre um sensor HC-SR04 e o objeto mais próximo. Ele emite pulsos ultrassônicos, mede o tempo que leva para eles retornarem e calcula a distância com base nesse tempo. O resultado é retornado em centímetros.
+
+
 O número 58 usado no cálculo da distância é uma constante que representa a velocidade do som em centímetros por microssegundo. O som viaja a uma velocidade aproximada de 343 metros por segundo (m/s) a uma temperatura de 20 graus Celsius. Isso equivale a cerca de 0,0343 centímetros por microssegundo.
 
 Como o sensor HC-SR04 mede o tempo de ida e volta do som, precisamos dividir esse tempo por dois para obter o tempo de ida apenas. Depois disso, basta multiplicar o tempo de ida por 0,0343 para obter a distância em centímetros. No entanto, como o sensor não é perfeito e há outros fatores que podem afetar a velocidade do som, um fator de conversão comumente usado é de 58, que é aproximadamente 0,0343 multiplicado por 2.
