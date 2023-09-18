@@ -1,3 +1,13 @@
+/***************************************************
+ * Autor: Eduardo Fritzen
+ * Data de Criação: 17 de Setembro de 2023
+ * Empresa: ConectaBit
+ * Descrição: Este é um exemplo de código Arduino que faz o controle do robô que evita obstáculos
+ * Site: https://fritzen.io
+ * Site: https://www.conectabit.com.br
+ * Licença: MIT 
+ ***************************************************/
+
 // Define os pinos dos motores
 #define LEFT_MOTOR_BACKWARD 5
 #define LEFT_MOTOR_FORWARD 6
