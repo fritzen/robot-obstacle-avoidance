@@ -1,7 +1,7 @@
 # Robot Obstacle Avoidance
 
-[![Video Demo](https://img.shields.io/badge/Watch%20Demo-YouTube-red?style=for-the-badge)](https://www.youtube.com/SEU_LINK_PARA_O_VIDEO)
-[![Chassi do Robô no Mercado Livre](https://img.shields.io/badge/Compre%20o%20Chassi-Mercado%20Livre-blue?style=for-the-badge)](https://www.mercadolivre.com.br/SEU_LINK_PARA_O_CHASSI)
+[![Video Demo](https://img.shields.io/badge/Watch%20Demo-YouTube-red?style=for-the-badge)](https://www.youtube.com/watch?v=FD2foIAbXzA)
+[![Chassi do Robô no Mercado Livre](https://img.shields.io/badge/Compre%20o%20Chassi-Mercado%20Livre-blue?style=for-the-badge)](https://www.conectabit.com.br/MLB-3447161105-rob-tanque-tank-esteira-robotica-evita-obstaculo-chassi-diy-_JM)
 
 ![Circuito Elétrico](eletrica.png)
 
@@ -11,11 +11,11 @@ Este projeto apresenta um robô capaz de evitar obstáculos usando sensores e um
 
 Confira o vídeo demonstrativo no YouTube para ver o robô em ação:
 
-[![Assista ao Vídeo](https://img.youtube.com/vi/SEU_CODIGO_DO_VIDEO/maxresdefault.jpg)](https://www.youtube.com/SEU_LINK_PARA_O_VIDEO)
+[![Assista ao Vídeo](https://img.youtube.com/vi/SEU_CODIGO_DO_VIDEO/maxresdefault.jpg)](https://www.youtube.com/watch?v=FD2foIAbXzA)
 
 ## Chassi do Robô
 
-Para construir o robô, você pode adquirir o chassi Arduino no Mercado Livre através deste [link](https://www.mercadolivre.com.br/SEU_LINK_PARA_O_CHASSI).
+Para construir o robô, você pode adquirir o chassi Arduino no Mercado Livre através deste [link](https://www.conectabit.com.br/MLB-3447161105-rob-tanque-tank-esteira-robotica-evita-obstaculo-chassi-diy-_JM).
 
 ## Licença
 
