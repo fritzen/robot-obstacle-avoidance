@@ -20,6 +20,15 @@
 #define ECHO_PIN A4
 #define TRIGGER_PIN A5
 
+
+#define SPEED_INCREMENT 2
+#define INITIAL_MOTOR_SPEED 80
+
+int motorSpeed = INITIAL_MOTOR_SPEED; // Velocidade inicial do motor
+
+
+
+
 // Define a distância mínima para o robô desviar de obstáculos (em centímetros)
 const int MIN_DISTANCE = 15;
 
@@ -45,14 +54,19 @@ void loop() {
   // Verifica se há obstáculos próximos
   if (distance < MIN_DISTANCE) {
     // Desvia do obstáculo
+    motorSpeed = INITIAL_MOTOR_SPEED;
     moveBackward();
-    delay(300);
+    delay(500);
+    stopMotors();
+    delay(150);
     turnRight();
-    delay(450);
+    delay(600);
+    stopMotors();
+    delay(150);
 
   } else {
     // Move para frente
-    moveForward2();
+    moveForwardFull();
   }
 
   // Imprime a distância medida no monitor serial
@@ -62,13 +76,6 @@ void loop() {
 }
 
 
-void moveForward2() {
-  moveForward();
-  delay(10);
-  stopMotors();
-  delay(1);
-}
-
 void stopMotors() {
   digitalWrite(LEFT_MOTOR_FORWARD, LOW);
   digitalWrite(LEFT_MOTOR_BACKWARD, LOW);
@@ -76,12 +83,38 @@ void stopMotors() {
   digitalWrite(RIGHT_MOTOR_BACKWARD, LOW);
 }
 
-void moveForward() {
+void moveForwardFull() {
+
+
   digitalWrite(LEFT_MOTOR_FORWARD, HIGH);
-  digitalWrite(LEFT_MOTOR_BACKWARD, LOW);
   digitalWrite(RIGHT_MOTOR_FORWARD, HIGH);
+
+  digitalWrite(LEFT_MOTOR_BACKWARD, LOW);
   digitalWrite(RIGHT_MOTOR_BACKWARD, LOW);
+
 }
+
+
+
+void moveForward() {
+
+    // Aumenta gradualmente a velocidade do motor
+    if (motorSpeed < 255) { // 255 é a velocidade máxima (faixa de 0 a 255)
+      motorSpeed = min(motorSpeed + SPEED_INCREMENT, 255); // Garante que a velocidade não exceda 255
+    }
+
+  // Define a velocidade do motor
+  analogWrite(LEFT_MOTOR_FORWARD, motorSpeed);
+  analogWrite(RIGHT_MOTOR_FORWARD, motorSpeed);
+
+  // Move o motor para frente
+  digitalWrite(LEFT_MOTOR_BACKWARD, LOW);
+  digitalWrite(RIGHT_MOTOR_BACKWARD, LOW);
+
+  
+  delay(1);
+}
+
 
 void moveBackward() {
   digitalWrite(LEFT_MOTOR_FORWARD, LOW);
@@ -121,6 +154,7 @@ Então, para converter o tempo de viagem do som em centímetros, dividimos o tem
 
 
 long measureDistance() {
+  delay(50);
   long duration, distance;
   digitalWrite(TRIGGER_PIN, LOW);
   delayMicroseconds(2);
